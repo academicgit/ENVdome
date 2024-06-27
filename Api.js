@@ -46,8 +46,8 @@ app.post("/compile", function (req, res) {
         }
         else if (lang == "Java") {
             if (!input) {
-                // var envData = { OS : "linux" };
-                var envData = { OS: "windows" };
+                var envData = { OS : "linux" };
+                // var envData = { OS: "windows" };
                 compiler.compileJava(envData, code, function (data) {
                     if (data.output) {
                         res.send(data);
@@ -59,8 +59,8 @@ app.post("/compile", function (req, res) {
             }
             else {
                 //if windows  
-                // var envData = { OS : "linux" };
-                var envData = { OS: "windows" };
+                var envData = { OS : "linux" };
+                // var envData = { OS: "windows" };
                 //else
                 compiler.compileJavaWithInput(envData, code, input, function (data) {
                     if (data.output) {
@@ -74,7 +74,8 @@ app.post("/compile", function (req, res) {
         }
         else if (lang == "Python") {
             if (!input) {
-                var envData = { OS: "windows" };
+                // var envData = { OS: "windows" };
+                var envData = { OS: "linux" };
                 compiler.compilePython(envData, code, function (data) {
                     if (data.output) {
                         res.send(data);
@@ -85,6 +86,7 @@ app.post("/compile", function (req, res) {
                 });
             }
             else {
+                // var envData = { OS: "windows" };
                 var envData = { OS: "windows" };
                 compiler.compilePythonWithInput(envData, code, input, function (data) {
                     if (data.output) {
